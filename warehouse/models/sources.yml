@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: DBT_DOCKER
+    schema: SOURCE
+    tables:
+      - name: CUSTOMER
+        description: aggregates average temper
+        identifier: CUSTOMER
+      - name: SALES
+        identifier: SALES

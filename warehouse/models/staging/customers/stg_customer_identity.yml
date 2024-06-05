@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: stg_customer_identity
+    description: Contains customer identity data
+    columns:
+      - name: email_address
+        description: aggregates average 
+      - name: current_segment_name
+      - name: current_ladder
+      - name: current_segment
+

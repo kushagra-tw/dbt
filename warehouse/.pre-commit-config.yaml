@@ -1,0 +1,47 @@
+# all commands by default will run on every push, not every commit
+default_install_hook_types: [pre-push]
+default_stages: [commit,push]
+
+# some configs are only available after v2.18
+minimum_pre_commit_version: '2.18'
+
+repos:
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 3.0.6
+    hooks:
+      - id: sqlfluff-lint
+        stages: [commit] 
+        additional_dependencies: [
+          'dbt-snowflake==1.7.3',
+          'sqlfluff-templater-dbt==3.0.6'
+        ]
+      - id: sqlfluff-fix
+        stages: [manual]  # this command is available only to run manually
+        additional_dependencies: [
+          'dbt-snowflake==1.7.3',
+          'sqlfluff-templater-dbt==3.0.6'
+        ]
+
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.17.0
+    hooks:
+      - id: yamllint
+        stages: [manual] 
+        args: [-c=.yamllint]
+
+  - repo: https://github.com/Montreal-Analytics/dbt-gloss
+    rev: v1.2.1
+    hooks:
+
+      - id: dbt-docs-generate
+        stages: [manual] 
+      - id: check-source-table-has-description
+        stages: [manual]
+      - id: check-model-columns-have-desc
+        stages: [manual]
+      - id: check-model-has-all-columns
+        stages: [manual]
+      - id: check-model-has-tests
+        stages: [manual]
+        args: ["--test-cnt", "2", "--"]
+        
