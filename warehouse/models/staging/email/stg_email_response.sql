@@ -1,5 +1,5 @@
 with src_email_response as (
-select * from tgt_wrks.src_email_response
+select * from {{source('SOURCE', 'email_response')}}
 )
 select
 "Email ID" as email_id,
