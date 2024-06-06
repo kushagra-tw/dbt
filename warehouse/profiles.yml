@@ -19,16 +19,16 @@ my-snowflake-db-sso:
       warehouse: <<warehousename>>
   target: dev
 
-sample_sales:
+my_snowflake_db:
   outputs:
     dev:
-      account: <<accountname>>
-      database: <<databasename>>
-      password: <<password>>
+      type: snowflake
+      account: <<account_id>>
+      user: <<user_name>>
+      password: <<user_password>>
       role: <<role>>
+      warehouse: <<WH>>
+      database: <<DB>>
       schema: <<schema>>
       threads: 2
-      type: <<connectiontype>>
-      user: <<username>>
-      warehouse: <<warehousename>>
   target: dev

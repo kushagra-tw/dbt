@@ -1,11 +1,10 @@
 version: 2
 
 sources:
-  - name: DBT_DOCKER
-    schema: SOURCE
+  - name: SOURCE
+    schema: TGT_WRKS
     tables:
-      - name: CUSTOMER
-        description: aggregates average temper
-        identifier: CUSTOMER
-      - name: SALES
-        identifier: SALES
+      - name: customer_account
+        identifier: src_customers_account
+      - name: email_response
+        identifier: src_email_response
